@@ -68,7 +68,9 @@ Notes:
 
 - `index.html` includes meta `description`, Open Graph, Twitter Card, `canonical`, `robots` and
   JSON-LD `WebApplication`; `lang`, `title`, `description` and `og:locale` are updated on language
-  change.
+  change. An inline script before render picks the saved language (or the browser's `navigator.language`)
+  and sets `<html lang>`, `title` and `description` in ES/EN before Svelte mounts.
+- `hreflang` alternates (`es`, `en`, `x-default`) point to the single URL.
 - **Important**: until you set the real domain, use `https://brainzscrobble.vercel.app/` as a
   placeholder in `index.html` (canonical, `og:url`, `og:image`, `twitter:image` and JSON-LD).
   Change it to your final domain before shipping.

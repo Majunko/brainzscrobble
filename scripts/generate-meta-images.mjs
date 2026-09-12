@@ -53,7 +53,7 @@ async function renderOgsvg() {
     <rect x="${cx - s / 2}" y="${cy - s / 2}" width="${s}" height="${s}" rx="${s * 0.26}" fill="url(#logoGrad)"/>
     <g transform="translate(${cx - s * 0.5}, ${cy - s * 0.5}) scale(${s / 200})">${glyph(200, 13)}</g>
     <text x="${cx}" y="${h * 0.6}" text-anchor="middle" font-family="${FONT}" font-size="96" font-weight="bold" fill="#ffffff">brainzscrobble</text>
-    <text x="${cx}" y="${h * 0.6 + 66}" text-anchor="middle" font-family="${FONT}" font-size="40" fill="#c7c7cc">Scrobbler manual para ListenBrainz</text>
+    <text x="${cx}" y="${h * 0.6 + 66}" text-anchor="middle" font-family="${FONT}" font-size="40" fill="#c7c7cc">Manual scrobbler for ListenBrainz</text>
   </svg>`);
 }
 

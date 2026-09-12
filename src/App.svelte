@@ -20,9 +20,22 @@
     const locale = i18n.locale;
     document.documentElement.lang = locale;
     document.title = t('seo.title');
+    const desc = t('seo.description');
     document
       .querySelector('meta[name="description"]')
-      ?.setAttribute('content', t('seo.description'));
+      ?.setAttribute('content', desc);
+    document
+      .querySelector('meta[property="og:title"]')
+      ?.setAttribute('content', t('seo.title'));
+    document
+      .querySelector('meta[name="twitter:title"]')
+      ?.setAttribute('content', t('seo.title'));
+    document
+      .querySelector('meta[property="og:description"]')
+      ?.setAttribute('content', desc);
+    document
+      .querySelector('meta[name="twitter:description"]')
+      ?.setAttribute('content', desc);
     document
       .querySelector('meta[property="og:locale"]')
       ?.setAttribute('content', locale === 'es' ? 'es_ES' : 'en_US');

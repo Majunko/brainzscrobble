@@ -4,6 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script>
+      (function () {
+        try {
+          var key = 'brainzscrobble.locale';
+          var saved = null;
+          try {
+            saved = localStorage.getItem(key);
+          } catch (e) {
+            saved = null;
+          }
+          var locale = saved;
+          if (locale !== 'es' && locale !== 'en') {
+            locale =
+              (navigator.language || 'en').toLowerCase().indexOf('es') === 0
+                ? 'es'
+                : 'en';
+            try {
+              localStorage.setItem(key, locale);
+            } catch (e) {
+              /* storage unavailable; ignored */
+            }
+          }
+          var isEs = locale === 'es';
+          var esTitle = 'brainzscrobble — Scrobbler manual para ListenBrainz';
+          var enTitle = 'brainzscrobble — Manual scrobbler for ListenBrainz';
+          var esDesc =
+            'Scrobbler manual para ListenBrainz: envía tus escuchas al instante o en lote directamente desde tu navegador, sin instalar nada.';
+          var enDesc =
+            'Manual scrobbler for ListenBrainz: send your listens instantly or in batches directly from your browser, no install required.';
+          document.documentElement.lang = locale;
+          document.title = isEs ? esTitle : enTitle;
+          var el = document.querySelector('meta[name="description"]');
+          if (el) el.setAttribute('content', isEs ? esDesc : enDesc);
+        } catch (e) {
+          /* detection failed; keep defaults */
+        }
+      })();
+    </script>
+
     <!-- Basic SEO -->
     <title>brainzscrobble — Scrobbler manual para ListenBrainz</title>
     <meta
@@ -18,6 +57,9 @@
 
     <!-- Canonical: update this URL to the final domain before shipping -->
     <link rel="canonical" href="https://brainzscrobble.vercel.app/" />
+    <link rel="alternate" hreflang="es" href="https://brainzscrobble.vercel.app/" />
+    <link rel="alternate" hreflang="en" href="https://brainzscrobble.vercel.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://brainzscrobble.vercel.app/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

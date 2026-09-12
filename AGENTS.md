@@ -36,7 +36,9 @@ Always run `npm run check` (and `npm run build` if output changes) after modifyi
   - `parse.ts` — Open Scrobbler-style parser (`parsePasted`/`parseList`).
   - `settings.svelte.ts` — user settings (`timeFormat` 12/24, `dateFormat`, `autoSplit`, `theme`) persisted in `localStorage` (`brainzscrobble.settings`); applies the `light` class to `<html>` on import.
 - `src/i18n/es.ts` + `src/i18n/en.ts` — dictionaries. `es` is the reference; `type Translations = Record<keyof typeof es, string>` enforces at compile time that every language has exactly the same keys.
-- `index.html` — SEO/OG/Twitter/JSON-LD metas; **unreplaced domain placeholder `https://brainzscrobble.vercel.app/`**.
+- `index.html` — SEO/OG/Twitter/JSON-LD metas; inline script that picks the saved locale (or
+  `navigator.language`) and sets `<html lang>`/`title`/`description` pre-render; hreflang es/en/x-default;
+  **unreplaced domain placeholder `https://brainzscrobble.vercel.app/`**.
 - `vercel.json` — security headers (strict CSP, nosniff, etc.).
 - `scripts/generate-meta-images.mjs` — generates social images with sharp.
 
