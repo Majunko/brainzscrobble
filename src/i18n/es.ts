@@ -5,6 +5,7 @@ const es = {
   'app.notConnected': 'Sin sesión',
   'app.footer':
     'Los scrobbles se envían directamente desde tu navegador a la API pública de ListenBrainz. Tu token y tu historial solo se guardan en este dispositivo.',
+  'app.source': 'Ver código en GitHub',
   'app.lang': 'Idioma',
   'app.settings': 'Ajustes',
   'settings.title': 'Ajustes',

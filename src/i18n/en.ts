@@ -7,6 +7,7 @@ const en: Translations = {
   'app.notConnected': 'Not connected',
   'app.footer':
     'Scrobbles are sent directly from your browser to the ListenBrainz public API. Your token and history are stored only on this device.',
+  'app.source': 'View source on GitHub',
   'app.lang': 'Language',
   'app.settings': 'Settings',
   'settings.title': 'Settings',
