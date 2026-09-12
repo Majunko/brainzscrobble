@@ -217,35 +217,37 @@
     </div>
 
     {#if mode === 'single'}
-      <div class="relative">
-        <div>
-          <label class="label" for="scrob-artist">{t('form.artist')}</label>
-          <input
-            id="scrob-artist"
-            class="input pr-9"
-            bind:value={artist}
-            placeholder={t('form.placeArtist')}
-            autocomplete="off"
-            onpaste={(e) => handlePaste(e, false)}
-          />
+      <div class="flex items-stretch gap-2">
+        <div class="flex min-w-0 flex-1 flex-col gap-3">
+          <div>
+            <label class="label" for="scrob-artist">{t('form.artist')}</label>
+            <input
+              id="scrob-artist"
+              class="input"
+              bind:value={artist}
+              placeholder={t('form.placeArtist')}
+              autocomplete="off"
+              onpaste={(e) => handlePaste(e, false)}
+            />
+          </div>
+
+          <div>
+            <label class="label" for="scrob-track">{t('form.track')}</label>
+            <input
+              id="scrob-track"
+              class="input"
+              bind:value={track}
+              placeholder={t('form.placeTrack')}
+              autocomplete="off"
+              onpaste={(e) => handlePaste(e, true)}
+              onkeydown={(e) => {
+                if (e.key === 'Enter') handleScrobble();
+              }}
+            />
+          </div>
         </div>
 
-        <div class="mt-3">
-          <label class="label" for="scrob-track">{t('form.track')}</label>
-          <input
-            id="scrob-track"
-            class="input pr-9"
-            bind:value={track}
-            placeholder={t('form.placeTrack')}
-            autocomplete="off"
-            onpaste={(e) => handlePaste(e, true)}
-            onkeydown={(e) => {
-              if (e.key === 'Enter') handleScrobble();
-            }}
-          />
-        </div>
-
-        <div class="absolute inset-y-0 right-0 flex w-9 flex-col items-center justify-center gap-1 t-dim">
+        <div class="flex w-9 shrink-0 flex-col items-center justify-center gap-1 t-dim">
           <span class="select-none text-[10px] leading-none" aria-hidden="true">⏋</span>
           <button
             type="button"
