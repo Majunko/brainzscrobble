@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -37,6 +37,8 @@
           document.title = isEs ? esTitle : enTitle;
           var el = document.querySelector('meta[name="description"]');
           if (el) el.setAttribute('content', isEs ? esDesc : enDesc);
+          var ogLocale = document.querySelector('meta[property="og:locale"]');
+          if (ogLocale) ogLocale.setAttribute('content', isEs ? 'es_ES' : 'en_US');
         } catch (e) {
           /* detection failed; keep defaults */
         }
@@ -44,47 +46,55 @@
     </script>
 
     <!-- Basic SEO -->
-    <title>brainzscrobble — Scrobbler manual para ListenBrainz</title>
+    <title>brainzscrobble — Manual scrobbler for ListenBrainz</title>
     <meta
       name="description"
-      content="Scrobbler manual para ListenBrainz: envía tus escuchas al instante o en lote directamente desde tu navegador, sin instalar nada."
+      content="Manual scrobbler for ListenBrainz: send your listens instantly or in batches directly from your browser, no install required."
     />
     <meta name="robots" content="index, follow" />
     <meta name="author" content="brainzscrobble" />
     <meta name="theme-color" content="#09090b" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-    <!-- Canonical: update this URL to the final domain before shipping -->
-    <link rel="canonical" href="https://brainzscrobble.vercel.app/" />
-    <link rel="alternate" hreflang="es" href="https://brainzscrobble.vercel.app/" />
-    <link rel="alternate" hreflang="en" href="https://brainzscrobble.vercel.app/" />
-    <link rel="alternate" hreflang="x-default" href="https://brainzscrobble.vercel.app/" />
+    <link rel="canonical" href="https://brainzscrobble.majunko.dev/" />
+    <link rel="alternate" hreflang="en" href="https://brainzscrobble.majunko.dev/" />
+    <link rel="alternate" hreflang="es" href="https://brainzscrobble.majunko.dev/" />
+    <link rel="alternate" hreflang="x-default" href="https://brainzscrobble.majunko.dev/" />
+    <link rel="preconnect" href="https://api.listenbrainz.org" crossorigin />
+    <link rel="dns-prefetch" href="https://listenbrainz.org" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="brainzscrobble" />
-    <meta property="og:title" content="brainzscrobble — Scrobbler manual para ListenBrainz" />
+    <meta property="og:title" content="brainzscrobble — Manual scrobbler for ListenBrainz" />
     <meta
       property="og:description"
-      content="Scrobbler manual para ListenBrainz: envía tus escuchas al instante o en lote directamente desde tu navegador, sin instalar nada."
+      content="Manual scrobbler for ListenBrainz: send your listens instantly or in batches directly from your browser, no install required."
     />
-    <meta property="og:url" content="https://brainzscrobble.vercel.app/" />
-    <meta property="og:image" content="https://brainzscrobble.vercel.app/og.png" />
+    <meta property="og:url" content="https://brainzscrobble.majunko.dev/" />
+    <meta property="og:image" content="https://brainzscrobble.majunko.dev/og.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="es_ES" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <meta
+      property="og:image:alt"
+      content="brainzscrobble — manual scrobbler for ListenBrainz"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="brainzscrobble — Scrobbler manual para ListenBrainz" />
+    <meta name="twitter:title" content="brainzscrobble — Manual scrobbler for ListenBrainz" />
     <meta
       name="twitter:description"
-      content="Scrobbler manual para ListenBrainz: envía tus escuchas al instante o en lote directamente desde tu navegador."
+      content="Manual scrobbler for ListenBrainz: send your listens instantly or in batches directly from your browser, no install required."
     />
-    <meta name="twitter:image" content="https://brainzscrobble.vercel.app/og.png" />
+    <meta name="twitter:image" content="https://brainzscrobble.majunko.dev/og.png" />
+    <meta
+      name="twitter:image:alt"
+      content="brainzscrobble — manual scrobbler for ListenBrainz"
+    />
 
     <!-- Datos estructurados -->
     <script type="application/ld+json">
@@ -93,12 +103,20 @@
         "@type": "WebApplication",
         "name": "brainzscrobble",
         "alternateName": "ListenBrainz Manual Scrobbler",
-        "url": "https://brainzscrobble.vercel.app/",
-        "description": "Scrobbler manual para ListenBrainz. Envía tus escuchas al instante o en lote directamente desde tu navegador, sin instalar nada.",
+        "url": "https://brainzscrobble.majunko.dev/",
+        "sameAs": "https://github.com/Majunko/brainzscrobble",
+        "description": "Manual scrobbler for ListenBrainz. Send your listens instantly or in batches directly from your browser, no install required.",
+        "keywords": [
+          "scrobbler",
+          "ListenBrainz",
+          "manual scrobbler",
+          "music tracking",
+          "last.fm alternative"
+        ],
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Web",
         "browserRequirements": "Requires JavaScript",
-        "inLanguage": ["es", "en"],
+        "inLanguage": ["en", "es"],
         "offers": {
           "@type": "Offer",
           "price": "0",

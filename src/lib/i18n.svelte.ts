@@ -13,16 +13,16 @@ for (const [path, mod] of Object.entries(modules)) {
   messages[name] = mod;
 }
 
+const DEFAULT_LOCALE = 'en';
+
 export type Locale = string;
 
-export const i18n: { locale: Locale } = $state({ locale: 'es' });
+export const i18n: { locale: Locale } = $state({ locale: DEFAULT_LOCALE });
 
 function defaultLocaleSafe(): Locale {
   const available = Object.keys(messages);
   const saved = localStorage.getItem(STORAGE_KEY);
-  return saved != null && available.includes(saved)
-    ? saved
-    : (available[0] ?? 'es');
+  return saved != null && available.includes(saved) ? saved : DEFAULT_LOCALE;
 }
 
 i18n.locale = defaultLocaleSafe();
