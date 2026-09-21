@@ -8,7 +8,6 @@ straight to the public ListenBrainz API.
 
 - [Svelte 5](https://svelte.dev) + [Vite](https://vite.dev) + TypeScript
 - [Tailwind CSS v4](https://tailwindcss.com) (Vite plugin)
-- Social images generated with [sharp](https://sharp.pixelplumbing.com)
 
 ## Commands
 
@@ -56,24 +55,13 @@ The `Translations` type guarantees at compile time that no keys are missing or e
    (MM/DD/YYYY, DD/MM/YYYY or YYYY-MM-DD), auto-split on paste (only affects single fields, not the
    List tab) and light/dark theme. Everything is stored in `localStorage`.
 7. When signed in, clicking your **username** in the header opens a menu with **View profile**,
-   **Settings** and **Sign out** (with icons).
+   **Settings** and **Sign out**.
 
 Notes:
 
 - Timestamps are sent as UNIX epoch (start of playback).
 - Submissions go through a queue with states (queued / error) with individual or batch retry.
 - The recent history (up to 50) is stored in `localStorage`.
-
-## SEO and domains
-
-- `index.html` includes meta `description`, Open Graph, Twitter Card, `canonical`, `robots` and
-  JSON-LD `WebApplication`; `lang`, `title`, `description` and `og:locale` are updated on language
-  change. An inline script before render picks the saved language (or the browser's `navigator.language`)
-  and sets `<html lang>`, `title` and `description` in ES/EN before Svelte mounts.
-- `hreflang` alternates (`es`, `en`, `x-default`) point to the single URL.
-- **Important**: until you set the real domain, use `https://brainzscrobble.vercel.app/` as a
-  placeholder in `index.html` (canonical, `og:url`, `og:image`, `twitter:image` and JSON-LD).
-  Change it to your final domain before shipping.
 
 ## Security
 
