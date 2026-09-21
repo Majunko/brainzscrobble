@@ -70,12 +70,3 @@ Notes:
   `Permissions-Policy`.
 - The token lives only in `localStorage` (the real vector is XSS; CSP mitigates it and the code
   never uses `innerHTML`/`{@html}`/`eval`).
-
-## Deploy
-
-Static site, output lands in `dist/`:
-
-```bash
-npx vercel          # automatic build and deploy
-npx vercel --prod   # production
-```
